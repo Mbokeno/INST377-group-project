@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>NSFW Detection</title>
+        <link rel = "stylesheet" href = "layout.css">
+        <script src="javascript.js"></script>
+    </head>
+
+    <body>
+        <h1>NSFW Detection</h1>
+
+        <!-- Navigation -->
+    <nav id="main-nav">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="front.html">NSFW Detector</a></li>
+        </ul>
+    </nav>
+
+<h2>Upload Your Photo</h2>
+<div id="preview"></div>
+
+<div id="messageBox" style="display: none;"></div>
+
+<form id="uploadForm" action="upload.php" method="post" enctype="multipart/form-data" onsubmit="submitForm(); return false;">
+    <label for="photo">Select Photo:</label><br>
+    <input type="file" id="photo" name="photo" accept="image/*" onchange="previewPhoto(event)"><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+    </body>
+</html>
