@@ -1,12 +1,128 @@
-<html>
-    <head>
-        <title>NSFW Detection</title>
-        <link rel = "stylesheet" href = "layout.css">
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSFW Detection</title>
+    <link rel="stylesheet" href="layout.css">
+    <style>
+        body {
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
 
-    <body>
-        <h1>NSFW Detection</h1>
-        <!-- Navigation -->
+        h1 {
+            text-align: center;
+            padding: 20px 0;
+            color: #333;
+        }
+
+        #main-nav {
+            background-color:lightblue;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        #main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #main-nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        #main-nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #main-nav ul li a:hover {
+            background-color: #555;
+        }
+
+        #Purpose {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        #TeamMembers {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        td img {
+            max-width: 80px;
+            border-radius: 50%;
+        }
+
+        #vision {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        #technology {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        #color{
+            color:#3498db;
+        }
+
+        .vision-img {
+            float: right;
+            margin-left: 20px;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>NSFW Detection</h1>
+    <!-- Navigation -->
     <nav id="main-nav">
         <ul>
             <li><a href="home.html">Home</a></li>
@@ -14,11 +130,61 @@
             <li><a href="front.html">NSFW Detector</a></li>
         </ul>
     </nav>
-    <h2>Purpose</h2>
+
     <div id="Purpose">
-        <p>Welcome to the NSFW Detection Project! Our goal is to create a safer digital enviroment by an application that can automatically identify inappropriate or a NSFW in pictures or videos. We aim to provide a reliable soultion that ensure a suitable and saf user experience for all, especially children.</p>
+        <h2 id="color">Purpose</h2>
+        <p>Welcome to the NSFW Detection Project! Our goal is to create a safer digital environment by an application that can automatically identify inappropriate or NSFW in pictures or videos. We aim to provide a reliable solution that ensures a suitable and safe user experience for all, especially children.</p>
+    </div>
+
+    <div id="TeamMembers">
+        <h2 id="color">Team Members</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Picture</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Beza Ermias</td>
+                    <td><img src="beza.png" alt="Beza Ermias"></td>
+                </tr>
+                <tr>
+                    <td>Alexander Yovanni De La Rosa</td>
+                    <td><img src="alexander.png" alt="Alexander Yovanni De La Rosa"></td>
+                </tr>
+                <tr>
+                    <td>Jaehyun Yoon</td>
+                    <td><img src="jaehyun.png" alt="Jaehyun Yoon"></td>
+                </tr>
+                <tr>
+                    <td>Bryan BokinoBryan Bokino</td>
+                    <td><img src="bryan.png" alt="Bryan Bokino"></td>
+                </tr>
+                <tr>
+                    <td>Fatmata JallohFatmata Jalloh</td>
+                    <td><img src="fatmata.png" alt="Fatmata Jalloh"></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
 
-    </body>
+    <div id="vision" class="interactive-section">
+        <img src="vision_image.png" alt="Vision Image" class="vision-img">
+        <h2 id="color">Our Vision</h2>
+        <p>Our vision is to build a platform that benefits various stakeholders:</p>
+        <ul>
+            <li>App developers and companies seeking to prioritize user safety and trust.</li>
+            <li>Parents and guardians concerned about their children's online safety.</li>
+            <li>Educators and schools aiming to provide age-appropriate digital content.</li>
+        </ul>
+    </div>
+
+    <div id="technology" class="interactive-section">
+        <h2 id="color">Our Technology</h2>
+        <p>We are utilizing HTML, CSS, and JavaScript for the frontend development of our project.</p>
+    </div>
+</body>
 </html>
