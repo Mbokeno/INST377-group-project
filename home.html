@@ -6,14 +6,267 @@
 
     <body>
         <h1>NSFW Detection</h1>
-        <!-- Navigation -->
     <nav id="main-nav">
         <ul>
             <li><a href="home.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="detector.html">NSFW Detector</a></li>
+            <li><a href="front.html">NSFW Detector</a></li>
         </ul>
     </nav>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        main{
+            min-height: 120vh;
+            background: linear-gradient(to right top, #005AA7, #FFFDE4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .Glass{
+            background: white;
+            min-height: 80vh;
+            width: 60%;
+            background: linear-gradient(to left bottom, rgba(92, 106, 175, 0.7), rgba(143, 141, 116, 0.3));
+            border-radius: 2rem;
+            z-index: 2;
+            backdrop-filter: blur(1rem);
+        }
+        .Dashboard{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to right bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+        }
+        .circle1, .circle2, .circle3{
+            background: white;
+            background: linear-gradient(to right bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.6));
+            height: 20rem;
+            width: 20rem;
+            position: absolute;
+        }
+
+        .circle1{
+            top: 25%;
+            left:10%;
+            border-radius: 20rem;
+            
+        }
+        .circle2{
+            top: 5%;
+            right:10%;
+            border-radius: 20rem;
+            z-index: 3;
+        }
+        .circle3{
+            top: 75%;
+            right:10%;
+            border-radius: 50rem;
+        }
+
+        .headerFormat{
+            display: inline-block;
+            margin-right: 100px;
+            margin-left: 100px;
+        }
+
+        .glideContainer{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px;
+            width: 100%;
+            background: linear-gradient(to left bottom, rgba(92, 106, 175, 0.7), rgba(143, 141, 116, 0.3));
+            backdrop-filter: blur(2rem);
+            border-bottom: 3px groove plum;
+        }
+
+        .glide__slide {
+            transform: perspective(600px) rotateY(20deg);
+            transition: all ease-in-out 0.35s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+        }
+
+        /* Make the active one straight */
+        .glide__slide--active {
+            transform: perspective(600px) rotateY(0deg);
+        }   
+
+        /* Give opposite rotation to slides after the active one */
+        .glide__slide--active ~ .glide__slide {
+            transform: perspective(600px) rotateY(-20deg);
+        }
+
+        h1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 30px;
+        }
+        .button-29 {
+            align-items: center;
+            appearance: none;
+            background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+            border: 0;
+            border-radius: 6px;
+            box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            font-family: "JetBrains Mono",monospace;
+            height: 48px;
+            justify-content: center;
+            line-height: 1;
+            list-style: none;
+            overflow: hidden;
+            padding-left: 16px;
+            padding-right: 16px;
+            position: relative;
+            text-align: left;
+            text-decoration: none;
+            transition: box-shadow .15s,transform .15s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+            will-change: box-shadow,transform;
+            font-size: 18px;
+        }
+
+        .button-29:focus {
+            box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+        }
+
+        .button-29:hover {
+            box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+            transform: translateY(-2px);
+        }
+
+        .button-29:active {
+            box-shadow: #3c4fe0 0 3px 7px inset;
+            transform: translateY(2px);
+        }
+
+        .buttonFormat{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 25px;
+        }
+    </style>
+    <body>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.core.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.theme.min.css">
+        <main>
+            <section class = "Glass">
+                <div class = "Dashboard">
+                    <div class = "links">
+                        <ul>
+                            <li class = "headerFormat"> 
+                                <div class = "link">
+                                    <a href = "">
+                                        <img src = "imageicon (1).png">
+                                    </a>
+                                </div>
+                           </li>
+
+                           <li class = "headerFormat">
+                                <div class = "link">
+                                    <a href = "">
+                                        <img src = "home (1).png">
+                                    </a>
+                                   
+                                </div>
+                           </li>
+
+                           <li class = "headerFormat">
+                             <div class = "link">
+                                <a href = "">
+                                    <img src = "infoicon.png">
+                                </a>  
+                            </div>
+                           </li>
+
+                        </ul>                     
+                    </div>
+                </div>
+                <section class = "glideContainer">
+                    <div class="glide">
+                        <div class="glide__track" data-glide-el="track">
+                          <ul class="glide__slides">
+                            <li class="glide__slide"><img id = 1 src="" alt=""></li>
+                            <li class="glide__slide"><img id = 2 src="" alt=""></li>
+                            <li class="glide__slide"><img id = 3 src="" alt=""></li>
+                            <li class="glide__slide"><img id = 4 src="" alt=""></li>
+                            <li class="glide__slide"><img id = 5 src="" alt=""></li>
+                            <li class="glide__slide"><img id = 6 src="" alt=""></li>
+                            <li class="glide__slide"><img id = 7 src="" alt=""></li>
+                            <li class="glide__slide"><img id = 8 src="" alt=""></li>
+                            <li class="glide__slide"><img id = 9 src="" alt=""></li>
+                            <li class="glide__slide"><img id = 10 src="" alt=""></li>
+                            <li class="glide__slide"><img id = 11 src="" alt=""></li>
+                            <li class="glide__slide"><img id = 12 src="" alt=""></li>
+                            <li class="glide__slide"><img id = 13 src="" alt=""></li>
+                            <li class="glide__slide"><img id = 14 src="" alt=""></li>
+                            <li class="glide__slide"><img id = 15 src="" alt=""></li>
+                            <li class="glide__slide"><img id = 16 src="" alt=""></li>
+                            <li class="glide__slide"><img id = 17 src="" alt=""></li>
+                            <li class="glide__slide"><img id = 18 src="" alt=""></li>
+                            <li class="glide__slide"><img id = 19 src="" alt=""></li>
+                            <li class="glide__slide"><img id = 20 src="" alt=""></li>
+                            
+                          </ul>
+                        </div>
+                      </div>
+                </section>
+                <h1 style = "font-style: italic;">Keeping the internet NSFW free, one image at a time</h3>
+                    <section class = "buttonFormat">
+                        <button class="button-29" role="button">Get Started</button>
+                    </section>
+                
+            </section>
+        </main>
+
+        <div class = "circle1"></div>
+        <div class = "circle2"></div>
+        <div class = "circle3"></div>
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+
+    <script>
+        const config = {
+            type: 'carousel',
+            startAt: 0,
+            focusAt: "center",
+            perView: 5,
+            gap: 10,
+            autoplay: 3000,
+            rewind: true
+            
+        }
+         new Glide('.glide', config).mount()
+
+         function getImage(){
+            
+            for (let i = 1; i < 21; i++) {
+
+                document.getElementById(i).src = "https://picsum.photos/150/200?random=" + i
+            }
+        }
+
+        getImage()
+    </script>
+</html>
 
 
 
