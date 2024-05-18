@@ -34,6 +34,9 @@ To conduct tests on our website's NSFW detection feature, follow these steps:
 
 
 ### About API
-- We are using OpenAI's Vision API
+1. OpenAI's Vision API
+    - Description: Analyzes and understands images by providing them as input to OpenAI's language models, which can then generate descriptions, answer questions, and provide insights about the visual content.
+    - Endpoint:
+2. 
 
 ### Future Development and Bugs

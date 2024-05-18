@@ -10,7 +10,7 @@
         <ul>
             <li><a href="home.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="front.html">NSFW Detector</a></li>
+            <li><a href="detector.html">NSFW Detector</a></li>
         </ul>
     </nav>
     <style>
@@ -267,6 +267,16 @@
         }
 
         getImage()
+
+        // fetch api for random pic add <div id="randomImage"></div> if you want to use
+        fetch('https://random.imagecdn.app/500/500')
+            .then(response => response.blob())
+            .then(blob => {
+                const url = URL.createObjectURL(blob);
+                const imageElement = document.getElementById('randomImage');
+                imageElement.innerHTML = `<img src="${url}" alt="Random Image">`;
+            })
+            .catch(error => console.error('Error:', error));
     </script>
 </html>
 
