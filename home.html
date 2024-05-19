@@ -257,26 +257,18 @@
             
         }
          new Glide('.glide', config).mount()
-
-         function getImage(){
+         
+        async function getImage(){
             
+            var response = await fetch('https://api.unsplash.com/photos/random/?count=20&orientation=portrait&client_id=0GmZkaBU2DOwmwYP5re3aVZBM8I6nQMwSvKX1W5ISbQ')
+                var data = await response.json()
+                console.log(data)
             for (let i = 1; i < 21; i++) {
-
-                document.getElementById(i).src = "https://picsum.photos/150/200?random=" + i
+                document.getElementById(i).src = data[i-1].urls.raw + "&w=150&h=200";
             }
+
         }
-
         getImage()
-
-        // fetch api for random pic add <div id="randomImage"></div> if you want to use
-        fetch('https://random.imagecdn.app/500/500')
-            .then(response => response.blob())
-            .then(blob => {
-                const url = URL.createObjectURL(blob);
-                const imageElement = document.getElementById('randomImage');
-                imageElement.innerHTML = `<img src="${url}" alt="Random Image">`;
-            })
-            .catch(error => console.error('Error:', error));
     </script>
 </html>
 
