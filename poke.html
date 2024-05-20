@@ -120,7 +120,7 @@
             console.log(error)
           }
 
-          if(data){
+          if(data&& data.length > 0){
             if(rating == 1){
               const { error } = await supabase
                 .from('pokemonRatings')
