@@ -20,3 +20,7 @@
     - Endpoint: https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/
 
 ### Future Development and Bugs
+- Future development Ideas:
+    - Ranking Chart that displays top voted Pokemon
+    - Community section allowing you to connect with other fans, share your thoughts, and discuss everything from battle strategies to the latest Pokémon news.
+    - More details about each Pokemon
