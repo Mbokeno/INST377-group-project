@@ -169,7 +169,7 @@ main{
 }
 .card-image {
   grid-area: image;
-  background-color: black;
+  background-color: rgb(40, 65, 120);;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background-size: cover;
