@@ -34,9 +34,14 @@ To conduct tests on our website's NSFW detection feature, follow these steps:
 
 
 ### About API
-1. OpenAI's Vision API
-    - Description: Analyzes and understands images by providing them as input to OpenAI's language models, which can then generate descriptions, answer questions, and provide insights about the visual content.
-    - Endpoint:
-2. 
+1. unsplash Developers
+    - Description: Retrieves a random collection of photos
+    - Endpoint: https://api.unsplash.com/photos/random/?count=20&orientation=portrait&client_id=0GmZkaBU2DOwmwYP5re3aVZBM8I6nQMwSvKX1W5ISbQ
+2. Glide
+    - Description: Transitions photos and allows users to swipe to new set of photos
+    - Endpoint: https://cdn.jsdelivr.net/npm/@glidejs/glide
+3. Filepond
+    - Description: Shows a preview of the image that was upload by the user
+    - Endpoint: https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js
 
 ### Future Development and Bugs
