@@ -236,26 +236,8 @@ main{
 .card-stats.card2 .border {
   border-right: 5px solid  rgba(31, 35, 56, 0.7);
   border-right-style: ridge;
-  border-radius: 1000px;
+
 }
 .card-stats.card2 {
   background: rgba(92, 106, 175, 0.7)
-}
-/*card3*/
-.card-image.card3 {
-  background: url("img3.jpg");
-  background-size: cover;
-}
-.card-text.card3 .date {
-  color: rgb(0, 189, 63);
-}
-.card-stats.card3 .border {
-  border-left: 1px solid rgb(14, 122, 50);
-  border-right: 1px solid rgb(14, 122, 50);
-}
-.card-stats.card3 {
-  background: rgb(0, 189, 63);
-}
-.js-tilt-glare {
-  border-radius: 18px;
 }
