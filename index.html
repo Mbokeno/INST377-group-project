@@ -1,16 +1,16 @@
 <html>
     <head>
-        <title>NSFW Detection</title>
+        <title>RandomPoke</title>
         <link rel = "stylesheet" href = "layout.css">
     </head>
 
     <body>
-        <h1>NSFW Detection</h1>
+        <h1>RandomPoke</h1>
     <nav id="main-nav">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="detector.html">NSFW Detector</a></li>
+            <li><a href="detector.html">Random Pokemon</a></li>
         </ul>
     </nav>
     <style>
@@ -259,13 +259,13 @@
          
         async function getImage(){
             
-            var response = await fetch('https://api.unsplash.com/photos/random/?count=20&orientation=portrait&client_id=0GmZkaBU2DOwmwYP5re3aVZBM8I6nQMwSvKX1W5ISbQ')
+              var response = await fetch('https://api.pokemontcg.io/v2/cards?pageSize=25')
                 var data = await response.json()
                 console.log(data)
-            for (let i = 1; i < 21; i++) {
-                document.getElementById(i).src = data[i-1].urls.raw + "&w=150&h=200";
+                for (let i = 1; i < 21; i++) {
+                var randomNum = Math.floor(Math.random() * (25 - 1) + 1);
+                document.getElementById(i).src = data.data[randomNum].images.small;
             }
-
         }
         getImage()
     </script>
