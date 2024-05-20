@@ -53,10 +53,12 @@
             <div class="card-stats card2">
               <div class="center">
                 <div class="stat border">
-                  <div class="value"><button class = "button-17" onclick="">Yay</button></div>
+                  <div class="value"><button class = "button-17" onclick="setPokemonData(1)">Yay</button></div>
+                  <div class="type" id="positive">views</div>
                 </div>
                 <div class="stat">
-                  <div class="value"><button class = "button-17" onclick="">Nay</button></div>
+                  <div class="value"><button class = "button-17" onclick="setPokemonData(-1)">Nay</button></div>
+                  <div class="type" id="negative">views</div>
                 </div>
                 
               </div>
@@ -78,12 +80,64 @@
 
   </body>
   <script src="vanilla-tilt.min.js"></script>
-  <script>
+  <script type = "module">
     VanillaTilt.init(document.querySelectorAll(".card"),{
       glare: true,
       reverse: true,
       "max-glare": 0.5
     });
+
+     //SUPABASE
+     const pokemonTable = []
+     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+        const supabaseUrl = 'https://wnpxbzrrwikcxlxqlipi.supabase.co'
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InducHhienJyd2lrY3hseHFsaXBpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTYwNDM3NTksImV4cCI6MjAzMTYxOTc1OX0.nEpdWDhJpWRmAkIYx0u37xmGfaaiUucwsKt-yzaJ-8M"
+        const supabase = createClient(supabaseUrl, supabaseKey)
+        
+        const getPokemonData = async(name) => {
+          const {data, error } = await supabase
+          .from('pokemonRatings')
+          .select()
+          .textSearch('pokemon_name', name)
+          if(error){
+            console.log("Could not fetch list: " + errror)
+          }
+          if(data){
+            console.log(data[0].positive_ratings)
+            document.getElementById("positive").textContent = data[0].positive_ratings
+            document.getElementById("negative").textContent = data[0].negative_ratings
+
+          }
+        }
+
+        async function setPokemonData(rating){
+          var name =  document.querySelector(".pokeName").textContent;
+          const {data, error } = await supabase
+          .from('pokemonRatings')
+          .select()
+          .textSearch('pokemon_name', name)
+          if(error){
+            console.log(error)
+          }
+
+          if(data){
+            if(rating == 1){
+              const { error } = await supabase
+                .from('pokemonRatings')
+                .update({ positive_ratings: data[0].positive_ratings + 1})
+                .eq('pokemon_name',  name)
+              }
+            else if(rating == -1){
+              const { error } = await supabase
+                .from('pokemonRatings')
+                .update({ negative_ratings: data[0].negative_ratings + 1})
+                .eq('pokemon_name',  name)
+              }
+          }
+
+          getInfo()
+        }
+       
 
     async function getInfo(){
       var randomINT = Math.floor(Math.random() * (999 - 1) + 1);
@@ -93,6 +147,7 @@
         console.log(pokeData)
       const changeName = document.querySelector(".pokeName");
       changeName.textContent = pokeData.name;
+      changeName.textContent = changeName.textContent.charAt(0).toUpperCase() + changeName.textContent.slice(1)
       const changeHeight = document.querySelector(".pokeHeight")
       changeHeight.textContent = "Height: " + pokeData.height
       const changeWeight = document.querySelector(".pokeWeight")
@@ -104,7 +159,10 @@
         if(i < pokeData.types.length-1){
           types.textContent += ", "
         }
+      getPokemonData(pokeData.name)
       }
+
+
 
       const cardImage2 = document.querySelector('.testImage');
       cardImage2.src = "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/" + randomINT+ ".png"
@@ -114,7 +172,9 @@
       })
 
     }
-
+    window.getInfo = getInfo;
+    window.setPokemonData = setPokemonData;
+    getPokemonData()
     getInfo()
   </script>
 </html>
